@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  ubuntu-build:
+  build:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
@@ -19,8 +19,8 @@ jobs:
           sudo apt update
           sudo apt install libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libxext-dev
       - name: Checkout
-        uses: actions/checkout@v2.0.0
+        uses: actions/checkout@v2
         with:
-          submodules: true
+          submodules: recursive
       - name: Build project
         uses: nicledomaS/cmake_build_action@v1.4
