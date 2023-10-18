@@ -13,12 +13,14 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
+      - name: Install dependencies
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt update
+          sudo apt install libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libxext-dev
       - name: Checkout
         uses: actions/checkout@v2.0.0
-      - name: Checkout raylib
-        uses: actions/checkout@v2.0.0
         with:
-          repository: raysan5/raylib
-          path: raylib
+          submodules: true
       - name: Build project
         uses: nicledomaS/cmake_build_action@v1.4
