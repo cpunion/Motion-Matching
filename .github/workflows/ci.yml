@@ -23,7 +23,7 @@ jobs:
         with:
           submodules: recursive
       - name: Set up CMake
-        uses: actions/setup-cmake@v1
+        uses: jwlawson/actions-setup-cmake@v1
         with:
           cmake-version: "3"
       - name: Build project
