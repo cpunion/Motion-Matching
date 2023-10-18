@@ -25,6 +25,6 @@ jobs:
       - name: Set up CMake
         uses: jwlawson/actions-setup-cmake@v1
         with:
-          cmake-version: "3"
+          cmake-version: "3.0"
       - name: Build project
         uses: nicledomaS/cmake_build_action@v1.4
